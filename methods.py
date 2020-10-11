@@ -7,10 +7,25 @@ class Vec2:
         return f'({self.x}, {self.y})'
 
     def add(self, v):
-        return Vec2(self.x + v.x, self.y + v.y)
+        if type(v) == Vec2:
+            return Vec2(self.x + v.x, self.y + v.y)
+        else:
+            raise TypeError
 
     def sub(self, v):
-        return Vec2(self.x - v.x, self.y - v.y)
+        if type(v) == Vec2:
+            return Vec2(self.x - v.x, self.y - v.y)
+        else:
+            raise TypeError
 
     def mult(self, n):
-        return (self.x * n, self.y * n)
+        if type(n) == int or type(n) == float:
+            return (self.x * n, self.y * n)
+        else:
+            raise TypeError
+
+x = Vec2(3, 5)
+y = Vec2(2, 9)
+print(x.sub(y))
+print(y.mult(3))
+print(y.add(x))
